@@ -2,7 +2,7 @@ let votosA = 0;
 let votosB = 0;
 let votosBlanco = 0;
 
-let codigosUsados = [];
+let ultimoCodigo = "";
 
 function menu() {
   let opcion;
@@ -44,12 +44,12 @@ function menu() {
 function votar(candidato) {
   let codigo = prompt("Ingrese su código de estudiante:");
 
-  if (codigosUsados.includes(codigo)) {
+  if (codigo === ultimoCodigo) {
     alert("Este estudiante ya registró su voto. Voto rechazado.");
     return;
   }
 
-  codigosUsados.push(codigo);
+  ultimoCodigo = codigo;
 
   if (candidato === "A") votosA++;
   else if (candidato === "B") votosB++;
